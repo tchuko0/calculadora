@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <img style="height: 200px; width: 300px;" src="sprint/logo_Termosense.png" alt="logo_Termosense">
+
+    <h1 style= "color:teal; ">Calculadora de Orçamento TermoSense</h1>
+
+
+    Digite o valor investido ao ano ! 
+    <input id="valor1" type="text" placeholder="Somente numeros EX (1000):" style="width: 250px;" > <br>
+    <p></p>
+    
+    Digite o valor perdido ao ano !
+    <input id="valor2" type="text" placeholder="Somente numeros EX (500):   " style="width: 213px;"><br>
+    <p></p>
+
+        <button onclick="calcular()">Calcular</button>
+        <button onclick="limpar()" >limpar </button>
+
+
+        <div id="exibir"></div>
+
+    </body>
+</html>
+
+<script>
+
+function calcular(){
+
+    
+
+    var gasto_medicamento = Number(valor1.value);
+    // input 1 EX 1000. 
+    var gasto_perdido = Number(valor2.value);
+    // input 2 EX 300.
+    var total_sobra = gasto_medicamento - gasto_perdido;
+    // valor input 1 - valor input 2 = total_sobra
+    var lucro = gasto_perdido * 0.75;
+    //  a variavel lucro é o que foi perdido *(vezes)* 0.75 porcento 300 (vezes) 65 porcento
+    var soma = total_sobra + lucro; 
+    // variavel soma é o que sobra + a variavel lucro: EX 700 + lucro 
+    
+    exibir.innerHTML = `Ao ano é investido ${gasto_medicamento} reias em medicamentos,  desse valor se perde ao ano ${gasto_perdido} reais ao ano. <br> </b> Com a <b>TermoSense</b> a empresa deixará de perder ${lucro.toFixed(0)} reais <br> 
+                        com isso o total investido da empresa será de ${soma.toFixed(2)} reias</b>    `
+
+}
+
+// toFixed(2) eu defino o numero de casas que quero depois do ponto
+
+     function limpar(){
+     valor1.value = " ";
+     valor2.value = " ";
+     exibir.innerHTML = " ";
+
+    };
+
+ 
+  
+
+
+
+</script>
